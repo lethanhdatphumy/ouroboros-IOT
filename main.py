@@ -3,7 +3,7 @@ from OpenWeather import OpenWeather
 from GetHumidityByLocation import GetHumidityByLocation
 import time
 
-global_data = ['', '', '', '']
+global_data = ['', '', '', ''] #[temp, humanity, tưới-ed ? , giờ tưới]
 
 scheduler = Scheduler()
 scheduler.SCH_Init()

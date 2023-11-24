@@ -8,7 +8,7 @@ class OpenWeather:
     BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
     def __init__(self, global_data):
-        self.city_name = global_data[1]
+        self.city_name = global_data[0]
         self.output = None
         print("Init OpenWeather")
 
@@ -35,13 +35,9 @@ class OpenWeather:
         self.get_weather()
         self.process_weather_data()
 
-        print(self.output["city"])
         print(self.output["temperature"])
-        print(self.output["feels_like"])
-
-        return {
-           self.output
-        }
+        from main import global_data
+        global_data[1] = self.output["temperature"]
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get weather information for a destination.")
@@ -49,6 +45,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     open_weather = OpenWeather(args.destination)
-    weather_data = open_weather.openWeather_Run()
+    open_weather.openWeather_Run()
 
     print(json.dumps(weather_data, indent=4))

@@ -39,6 +39,8 @@ class GetHumidityByLocation:
         self.process_humidity_data()
 
         print(self.output["humidity"])
+        from main import global_data
+        global_data[2] = self.output["humidity"]
 
 
 if __name__ == "__main__":

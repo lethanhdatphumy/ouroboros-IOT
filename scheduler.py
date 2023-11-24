@@ -4,11 +4,10 @@ latest_output = ["", {}, bool]
 
 
 class Task:
-    def __init__(self, _outputId, _pTask, _Delay, _Period):
+    def __init__(self, _pTask, _Delay, _Period):
         self.pTask = _pTask
         self.Delay = _Delay
         self.Period = _Period
-        self.outputId = _outputId
 
     pTask = None
     Delay = 0
@@ -30,7 +29,7 @@ class Scheduler:
     def SCH_Init(self):
         self.current_index_task = 0
 
-    def SCH_Add_Task(self,outputId, pFunction, DELAY, PERIOD):
+    def SCH_Add_Task(self, pFunction, DELAY, PERIOD):
         if self.current_index_task < self.SCH_MAX_TASKS:
             aTask = Task(pFunction, DELAY / self.TICK, PERIOD / self.TICK)
 

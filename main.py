@@ -11,8 +11,8 @@ scheduler.SCH_Init()
 taskOpenWeather = OpenWeather(global_data)
 getHumidityByLocation = GetHumidityByLocation(global_data)
 
-scheduler.SCH_Add_Task(taskOpenWeather.openWeather_Run, 1, DELAY=1000, PERIOD=5000)
-scheduler.SCH_Add_Task(getHumidityByLocation.GetHumidity_Run, 1, DELAY=1000, PERIOD=5000)
+scheduler.SCH_Add_Task(taskOpenWeather.openWeather_Run, DELAY=1000, PERIOD=5000)
+scheduler.SCH_Add_Task(getHumidityByLocation.GetHumidity_Run, DELAY=1000, PERIOD=5000)
 
 while True:
     scheduler.SCH_Update()

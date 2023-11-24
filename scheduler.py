@@ -1,6 +1,6 @@
 # fortmat: "[<TaskID>]<data>"
 # store as a list so that it can be changed anywhere in project (pass by reference)
-latest_output = ["", {}, bool]
+latest_output = ["", "", "", "", ""]
 
 
 class Task:

@@ -7,10 +7,9 @@ class OpenWeather:
     API_KEY = '3c110ac7e07818e06de1b8edee4e8917'
     BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
-    def __init__(self,outputId, data):
-        self.city_name = data[1]
+    def __init__(self, global_data):
+        self.city_name = global_data[1]
         self.output = None
-        self.outputId = outputId
         print("Init OpenWeather")
 
     def get_weather(self):

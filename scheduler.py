@@ -4,7 +4,7 @@ latest_output = ["", {}, bool]
 
 
 class Task:
-    def __init__(self,_outputId, _pTask, _Delay, _Period):
+    def __init__(self, _outputId, _pTask, _Delay, _Period):
         self.pTask = _pTask
         self.Delay = _Delay
         self.Period = _Period

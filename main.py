@@ -1,14 +1,10 @@
 from scheduler import Scheduler
-import time
-
 from OpenWeather import OpenWeather
 from GetHumidityByLocation import GetHumidityByLocation
-
 from Irrigation import IrrigationSystem
-import time
-
 from PublishResult import PublishResult
 
+import time
 
 global_data = ['ho chi minh', '', '', False, False]  # [city, temp, humanity, current status  , status change ]
 

@@ -1,19 +1,14 @@
 from datetime import datetime
 import gspread
-from google.oauth2.service_account import Credentials
 import gspread.exceptions
 
 
 class PublishResult:
     def __init__(self, global_data):
-        self.temperature = global_data[1]
-        self.humidity = global_data[2]
-        self.publish = global_data[4]
+        self.global_data = global_data
         print("Init publish result")
-        self.number_of_seats = 3
         gc = gspread.service_account(
             filename="./client_secret_381278414659-0m31ivarqf8ugu4t3v39vaipu4q9j9ct.apps.googleusercontent.com.json")
-        self.current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.sheet_name = "Ouroboros - history"
 
         try:  # Try to open today's sheet
@@ -30,13 +25,14 @@ class PublishResult:
             content = ["Temperature", "Humidity", "Time"]
             self.work_sheet.append_row(content, table_range="A1:C1")
 
-    def PublishResult_run(self):    #Start publish result to google sheet
-        content = []
-        if not self.temperature == '' and self.humidity != '':
-            # content = [self.temperature, self.humidity, self.current_date]
-            content = [12, 26.5, "lalalala"]
+    def PublishResult_run(self):  # Start publish result to google sheet
+        import main
+        current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        content = [main.global_data[1], main.global_data[2], current_date]
+        print("Run Publishing result to google sheet")
 
         from main import global_data
         if global_data[4]:
+            print("Publishing result to google sheet")
             self.work_sheet.append_row(content, table_range="A1:C1")
             global_data[4] = False

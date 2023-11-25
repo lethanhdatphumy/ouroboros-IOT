@@ -3,12 +3,14 @@ import time
 from OpenWeather import OpenWeather
 from GetHumidityByLocation import GetHumidityByLocation
 
+
 class SoilMoistureSensor:
     def __init__(self, humidity):
         self.moisture_level = humidity
 
     def read_moisture(self):
         return self.moisture_level
+
 
 class IrrigationSystem:
     def __init__(self, city_name, sprinkler_status, write_to_sheet):
@@ -33,8 +35,8 @@ class IrrigationSystem:
             print("Could not fetch weather data. Skipping irrigation check.")
             return
 
-        # self.current_temperature = 29
-        # self.current_humidity = 49
+        self.current_temperature = 29
+        self.current_humidity = 49
 
         print(f"Current Temperature: {self.current_temperature}°C")
         print(f"Soil moisture level: {self.current_humidity}%")
@@ -49,8 +51,6 @@ class IrrigationSystem:
             else:
                 self.is_on = False
                 self.sprinkler_status = self.is_on
-
-
 
         if self.is_on is False:
             print("Irrigation system turned OFF")

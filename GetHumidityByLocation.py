@@ -45,8 +45,8 @@ class GetHumidityByLocation:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get weather information for a destination.")
-    parser.add_argument("destination", type=str, help="Destination city for weather information.")
+    parser.add_argument("global_data", type=str, help="global_data needed.")
     args = parser.parse_args()
 
-    world_weather_online = GetHumidityByLocation(args.outputId)
+    world_weather_online = GetHumidityByLocation(args.global_data)
     world_weather_online.GetHumidity_Run()

@@ -47,4 +47,4 @@ if __name__ == "__main__":
     open_weather = OpenWeather(args.destination)
     open_weather.openWeather_Run()
 
-    print(json.dumps(weather_data, indent=4))
+

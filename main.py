@@ -1,7 +1,9 @@
 from scheduler import Scheduler
+import time
+
 from OpenWeather import OpenWeather
 from GetHumidityByLocation import GetHumidityByLocation
-import time
+from PublishResult import PublishResult
 
 global_data = ['ho chi minh', '', '', '', '']  # [temp, humanity, tưới-ed ? , giờ tưới]
 
@@ -10,9 +12,11 @@ scheduler.SCH_Init()
 
 taskOpenWeather = OpenWeather(global_data)
 getHumidityByLocation = GetHumidityByLocation(global_data)
+publishResult = PublishResult(global_data)
 
 scheduler.SCH_Add_Task(taskOpenWeather.openWeather_Run, DELAY=1000, PERIOD=5000)
 scheduler.SCH_Add_Task(getHumidityByLocation.GetHumidity_Run, DELAY=1000, PERIOD=5000)
+scheduler.SCH_Add_Task(publishResult.PublishResult_run, DELAY=1000, PERIOD=5000)
 
 while True:
     scheduler.SCH_Update()

@@ -52,10 +52,7 @@ class Scheduler:
         for i in range(0, len(self.SCH_tasks_G)):
             if self.SCH_tasks_G[i].RunMe > 0:
                 self.SCH_tasks_G[i].RunMe -= 1
-                # Run task
-                global latest_output
-                output = self.SCH_tasks_G[i].pTask()
-                latest_output[i] = output
+                self.SCH_tasks_G[i].pTask()
 
     # TODO
     def SCH_Delete(self, aTask):

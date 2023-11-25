@@ -31,10 +31,11 @@ class PublishResult:
             self.work_sheet.append_row(content, table_range="A1:C1")
 
     def PublishResult_run(self):
-        # content = [self.temperature, self.humidity, self.current_date]
-        content = [12, 26.5, "lalalala"]
-
         from main import global_data
+        if global_data[3] & global_data[2]:
+            # content = [self.temperature, self.humidity, self.current_date]
+            content = [12, 26.5, "lalalala"]
+
         if global_data[4]:
             self.work_sheet.append_row(content, table_range="A1:C1")
             global_data[4] = False

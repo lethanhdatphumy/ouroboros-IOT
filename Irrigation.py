@@ -31,34 +31,40 @@ class IrrigationSystem:
         self.fetch_weather_data()
         if self.current_temperature is None or self.current_humidity is None:
             print("Could not fetch weather data. Skipping irrigation check.")
-            return self.sprinkler_status, self.write_to_sheet
+            return
 
-        #self.current_temperature = 29
-        #self.current_humidity = 49
+        # self.current_temperature = 29
+        # self.current_humidity = 49
 
         print(f"Current Temperature: {self.current_temperature}°C")
         print(f"Soil moisture level: {self.current_humidity}%")
         if self.current_temperature > 30:
             self.is_on = False
+
         else:
             if self.current_humidity < 50:
                 self.is_on = True
+                self.sprinkler_status = self.is_on
+
             else:
                 self.is_on = False
+                self.sprinkler_status = self.is_on
+
+
 
         if self.is_on is False:
-            self.sprinkler_status = self.is_on
             print("Irrigation system turned OFF")
 
         else:
+            print("Irrigation system turned ON")
             self.write_to_sheet = True
 
-            print("Irrigation system turned ON")
-            print(self.sprinkler_status)
-            print(self.write_to_sheet)
-            from main import global_data
-            global_data[3] = self.sprinkler_status
-        global_data[4] = self.write_to_sheet
+        from main import global_data
+        if global_data[3] != self.sprinkler_status:
+            global_data[4] = self.write_to_sheet
+            print(global_data[4])
+        global_data[4] = True
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run the irrigation system for a specific city.")

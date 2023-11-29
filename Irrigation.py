@@ -49,7 +49,8 @@ class IrrigationSystem:
 
             else:
                 self.is_on = False
-            self.sprinkler_status = self.is_on
+                
+        self.sprinkler_status = self.is_on
 
 
         if self.is_on is False:

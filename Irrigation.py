@@ -42,16 +42,15 @@ class IrrigationSystem:
             self.is_on = False
 
         else:
-
             if self.current_humidity < 50:
                 self.is_on = True
-
+                
 
             else:
                 self.is_on = False
                 
-        self.sprinkler_status = self.is_on
 
+        self.sprinkler_status = self.is_on
 
         if self.is_on is False:
             print("Irrigation system turned OFF")

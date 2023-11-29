@@ -63,7 +63,7 @@ class IrrigationSystem:
         if global_data[3] != self.sprinkler_status:
             global_data[4] = self.write_to_sheet
             print(global_data[4])
-        global_data[4] = True
+            global_data[4] = True
 
 
 if __name__ == "__main__":

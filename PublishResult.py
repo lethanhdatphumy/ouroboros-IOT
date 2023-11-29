@@ -26,12 +26,11 @@ class PublishResult:
             self.work_sheet.append_row(content, table_range="A1:C1")
 
     def PublishResult_run(self):  # Start publish result to google sheet
-        import main
-        current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        content = [main.global_data[1], main.global_data[2], current_date]
-        print("Run Publishing result to google sheet")
-
         from main import global_data
+        current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        content = [global_data[1], global_data[2], current_date]
+        print("Run Publish result to google sheet")
+
         if global_data[4]:
             print("Publishing result to google sheet")
             self.work_sheet.append_row(content, table_range="A1:C1")

@@ -1,7 +1,7 @@
 import argparse
-import time
-from OpenWeather import OpenWeather
+
 from GetHumidityByLocation import GetHumidityByLocation
+from OpenWeather import OpenWeather
 
 
 class SoilMoistureSensor:
@@ -35,8 +35,8 @@ class IrrigationSystem:
             print("Could not fetch weather data. Skipping irrigation check.")
             return
 
-        self.current_temperature = 29
-        self.current_humidity = 49
+        # self.current_temperature = 29
+        # self.current_humidity = 49
 
         print(f"Current Temperature: {self.current_temperature}°C")
         print(f"Soil moisture level: {self.current_humidity}%")

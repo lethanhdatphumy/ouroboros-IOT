@@ -8,6 +8,7 @@ class GetHumidityByLocation:
     BASE_URL = 'http://api.worldweatheronline.com/premium/v1/weather.ashx'
 
     def __init__(self, global_data):
+        self.output = None
         self.public_ip = self.get_public_ip()
         self.data = None
         self.global_data = global_data

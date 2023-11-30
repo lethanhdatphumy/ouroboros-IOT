@@ -31,8 +31,7 @@ class PublishResult:
             self.work_sheet.append_row(content, table_range="A1:C1")
 
     def PublishResult_run(self):    #Start publish result to google sheet 
-        # content = [self.temperature, self.humidity, self.current_date]
-        content = [12, 26.5, "lalalala"]
+        content = [self.temperature, self.humidity, self.current_date]
 
         from main import global_data
         if global_data[4]:

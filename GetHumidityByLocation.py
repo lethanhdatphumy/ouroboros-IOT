@@ -31,7 +31,7 @@ class GetHumidityByLocation:
         humidity = self.data
 
         self.output = {
-            "humidity": humidity,
+            "humidity": float(humidity),
         }
 
     def GetHumidity_Run(self):

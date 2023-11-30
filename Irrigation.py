@@ -1,7 +1,8 @@
 import argparse
-import time
-from OpenWeather import OpenWeather
+
 from GetHumidityByLocation import GetHumidityByLocation
+from OpenWeather import OpenWeather
+
 
 
 class SoilMoistureSensor:
@@ -50,6 +51,7 @@ class IrrigationSystem:
             self.is_on = False
 
         from main import global_data
+
         if self.is_on != self.sprinkler_status:
             self.write_to_sheet = True
         else:
@@ -60,6 +62,8 @@ class IrrigationSystem:
         global_data[4] = self.write_to_sheet
         print("sprinkler:", self.sprinkler_status)
         print("write to sheet:", self.write_to_sheet)
+
+
 
 
 

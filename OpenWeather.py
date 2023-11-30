@@ -1,7 +1,7 @@
 import requests
-import json
 import argparse
 from simple_chalk import chalk
+
 
 class OpenWeather:
     API_KEY = '3c110ac7e07818e06de1b8edee4e8917'
@@ -39,6 +39,7 @@ class OpenWeather:
         from main import global_data
         global_data[1] = self.output["temperature"]
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get weather information for a destination.")
     parser.add_argument("destination", type=str, help="Destination city for weather information.")
@@ -46,4 +47,3 @@ if __name__ == "__main__":
 
     open_weather = OpenWeather(args.destination)
     open_weather.openWeather_Run()
-

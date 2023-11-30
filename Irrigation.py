@@ -57,7 +57,7 @@ class IrrigationSystem:
 
         else:
             print("Irrigation system turned ON")
-            self.write_to_sheet = True
+
 
         from main import global_data
         if global_data[3] != self.sprinkler_status:
